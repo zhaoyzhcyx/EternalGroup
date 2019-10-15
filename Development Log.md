@@ -5,5 +5,5 @@ Initiated the project and named as Dever, created file README.md
 Created source code folders and files as below:
 1. 'Development Log.md file records the major changes or implements
 2. Drafted 'top-menu bar'
-##Pending Problems
+## Pending Problems
 1. How to share the top-menu bar code in every pages instead of copying it into every pages?
