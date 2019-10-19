@@ -1,7 +1,7 @@
 # Final Project of NodeJS Course at Regina 
 ## Home Page
 Favicon; Navigation menu
-* [Introduction to Development](https://zhaoyzhcyx.github.io/FinalProjectNodeJS/) 
+* [Visit Me](https://zhaoyzhcyx.github.io/FinalProjectNodeJS/) 
 ## News
 ## Events
 IT events information in 2019 at Regina
