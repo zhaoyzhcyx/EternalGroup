@@ -1,6 +1,7 @@
 # Final Project of NodeJS Course at Regina 
 ## Home Page
-Favicon; Navigation menu 
+Favicon; Navigation menu
+* [Introduction to Development](index.html) 
 ## News
 ## Events
 IT events information in 2019 at Regina
