@@ -1,12 +1,12 @@
 # Final Project of NodeJS Course at Regina 
-## Home Page
-Favicon; Navigation menu
-* [Visit Me](https://zhaoyzhcyx.github.io/FinalProjectNodeJS/) 
+## Home Page - [Visit Me](https://zhaoyzhcyx.github.io/FinalProjectNodeJS/)
+* Favicon
+* Navigation menu 
+* NodeJS Course introduction and hightlights
 ## News
-## Events
+News of other ComIT courses
+## IT Events
 IT events information in 2019 at Regina
-## IT Courses
-Two IT courses information with picture and video 
 ## Register
 New user registration
 ## Contact
