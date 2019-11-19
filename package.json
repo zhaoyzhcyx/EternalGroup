@@ -1,0 +1,21 @@
+{
+  "name": "Dever",
+  "version": "1.0.0",
+  "description": "* Favicon\r * Navigation menu \r * NodeJS Course introduction and hightlights\r ## News\r News of other ComIT courses\r ## IT Events\r IT events information in 2019 at Regina\r ## Register\r New user registration\r ## Contact\r Submit information and send email",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhaoyzhcyx/EternalGroup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhaoyzhcyx/EternalGroup/issues"
+  },
+  "homepage": "https://github.com/zhaoyzhcyx/EternalGroup#readme"
+}
