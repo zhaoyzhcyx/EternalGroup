@@ -3,9 +3,9 @@
 * Favicon
 * Navigation menu 
 * NodeJS Course introduction and hightlights
-## News
-News of other ComIT courses
 ## IT Events
+News of other ComIT courses
+## Add IT Event
 IT events information in 2019 at Regina
 ## Register
 New user registration
