@@ -1,0 +1,22 @@
+const mongoose = require('mongoose')
+
+const eventsSchema = mongoose.Schema({
+    name: {
+        type: String,
+        required: [true, 'event name is required']
+    },
+    organizer: String,
+    orgURL: String,
+    date: {
+        type: String,
+        required: [true, 'event date is required']
+    },
+    location: String,
+    description: {
+        type: String,
+        required: [true, 'event description is required']
+    },
+    img: String
+})
+
+module.exports = mongoose.model('reginaitevents', eventsSchema)

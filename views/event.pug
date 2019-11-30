@@ -1,0 +1,33 @@
+extends ./layout.pug
+
+block styles
+  title Add IT Event
+
+block content
+  form.container(action='addevent' method='POST' enctype='application/x-www-form-urlencoded')
+    .form-row
+      .col-md-6.mb-3
+        label(for='eventname') Event name
+        input#eventname.form-control(type='text' name='eventname' placeholder='Event Name' required='')
+      .col-md-6.mb-3
+        label(for='organizer') Organizer
+        input#organizer.form-control(type='text' name='organizer' placeholder='Organizer')
+    .form-row
+      .col-md-4.mb-3
+        label(for='date') Date
+        input#date.form-control(type='datetime-local' name='date' placeholder='Date')
+      .col-md-8.mb-3
+        label(for='location') Location
+        input#location.form-control(type='text' name='location' placeholder='Location')
+    .form-row
+      .col-md-6.mb-3
+        label(for='website') Website
+        input#website.form-control(type='text' name='website' placeholder='Website')
+      .col-md-6.mb-3
+        label(for='image') Image
+        input#image.form-control(type='text' name='image' placeholder='image')
+    .form-row
+      .col-md-6.mb-3
+        label(for='desc') Description
+        textarea#desc.form-control(name='desc' placeholder='Event Description' rows='5')
+    button.btn.btn-primary(type='submit') Submit

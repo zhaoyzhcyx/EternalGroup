@@ -1,0 +1,26 @@
+extends ./layout.pug
+
+block styles
+  title IT Events in Regina
+
+block content
+  #eventcontainer.container-fluid
+    h1 
+      span.badge.badge-secondary IT Events in Regina
+    
+    each event in events
+      .card.col-md-9.mb-3
+        .card-header
+          h3= event.name
+        .card-body
+          .card-title 
+            h5= event.date
+          .card-title
+            h5= event.location + '    '
+              a(href=event.orgURL target='_blank')
+                = event.organizer
+          .card-text
+            p= event.description
+          if event.img != ''
+            .card-text
+              img.img-fluid(src='img/' + event.img alt='Responsive image')
