@@ -16,14 +16,49 @@ head
   script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
   script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
 
+  script(src="/js/script.js")
+
   block styles
   block script
 body  
   // top navigation
-  nav.navbar.navbar-expand-md.navbar-dark.bg-dark.mb-3
-    .container-fluid
+  nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    a.navbar-brand(href='#') Dever
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarCollapse')
+      span.navbar-toggler-icon
+    a.nav-item.nav-link()                        
+    a.nav-item.nav-link()
+  
+    #navbarCollapse.collapse.navbar-collapse
       .navbar-nav
-        a.nav-item.nav-link.active(href='/') IT Event
-        a.nav-item.nav-link(href='/newevent') Add IT Event
+        block navcontent
+        a.nav-item.nav-link()                        
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        
+        form.form-inline.align-items-center(action='/search' method='POST' enctype='application/x-www-form-urlencoded')
+          input.form-control.mr-sm-2(type='text' name='keyword' placeholder='Search')
+          button.btn.btn-outline-light(type='submit') Search
 
+  br
   block content
+
+//- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+//-     <a href="#" class="navbar-brand">Brand</a>
+//-     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+//-         <span class="navbar-toggler-icon"></span>
+//-     </button>
+
+//-     <div class="collapse navbar-collapse" id="navbarCollapse">
+//-         <div class="navbar-nav">
+//-             <a href="#" class="nav-item nav-link active">Home</a>
+//-             <a href="#" class="nav-item nav-link">About</a>
+//-             <a href="#" class="nav-item nav-link">Products</a>
+//-         </div>
+//-         <form class="form-inline ml-auto">
+//-             <input type="text" class="form-control mr-sm-2" placeholder="Search">
+//-             <button type="submit" class="btn btn-outline-light">Search</button>
+//-         </form>
+//-     </div>
+//- </nav>

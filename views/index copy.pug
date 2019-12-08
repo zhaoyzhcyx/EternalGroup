@@ -1,0 +1,64 @@
+extends ./layout.pug
+
+block styles
+  title IT Events in Regina
+
+block navcontent
+  a.nav-item.nav-link.active(href='/') IT Event List
+  a.nav-item.nav-link(href='/newevent') New IT Event
+
+block content
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 col-lg-6 h-100">
+          //- <iframe width="560" height="100%" src="/eventlist" allowfullscreen></iframe>
+          iframe(src='/eventlist' width="500" height="700" frameborder='0')
+            //- <div class="card h-100">
+            //-   .card-text
+                //- iframe.h-100(src='/eventlist' width="90%" heitht="100%" frameborder='0')
+              //- each event in events
+              //-   .card-header
+              //-     h5= event.date.substr(0,10)
+              //-   .card-body
+              //-     .card-title 
+              //-       h8= event.name + '    '  + event.date.substr(11,15)
+              //-     .card-title
+              //-       h8= event.location + '    '
+              //-         a(href=event.orgURL target='_blank')
+              //-           = event.organizer
+              //-     .card-text
+              //-       p= event.description.substr(0,30) + "..."
+            //- </div>
+        </div>
+        <div class="col-md-8 col-lg-3 G">
+          iframe(src='/newevent' width="800" height="1000" frameborder='0')
+        </div>
+    </div>
+  </div>
+
+  //- .container-fluid
+  //-   .row.h-100
+  //-     iframe.col-md-4.h-100(src='/eventlist' frameborder='0')
+  //-     iframe.col-md-8.h-100(src='/newevent' frameborder='0')
+
+
+  //- #eventcontainer.container-fluid
+  //-   h4
+  //-     a(href='/')
+  //-       #daily.span.badge.badge-secondary Daily
+  //-     span.badge.badge-secondary Monthly
+  //-     span.badge.badge-secondary Caterory
+    
+  //-   each event in events
+  //-     .card.col-md-9.mb-3
+  //-       .card-header
+  //-         h5= event.date.substr(0,10)
+  //-       .card-body
+  //-         .card-title 
+  //-           h8= event.name + '    '  + event.date.substr(11,15)
+  //-         .card-title
+  //-           h8= event.location + '    '
+  //-             a(href=event.orgURL target='_blank')
+  //-               = event.organizer
+  //-         .card-text
+  //-           p= event.description.substr(0,30) + "..."

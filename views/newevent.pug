@@ -1,7 +1,11 @@
 extends ./layout.pug
 
 block styles
-  title Add IT Event
+  title New IT Event
+
+block navcontent
+  a.nav-item.nav-link(href='/') IT Event List
+  a.nav-item.nav-link.active(href='/newevent') New IT Event
 
 block content
   form.container(action='addevent' method='POST' enctype='application/x-www-form-urlencoded')
@@ -13,12 +17,15 @@ block content
         label(for='organizer') Organizer
         input#organizer.form-control(type='text' name='organizer' placeholder='Organizer')
     .form-row
-      .col-md-4.mb-3
-        label(for='date') Date
-        input#date.form-control(type='datetime-local' name='date' placeholder='Date')
-      .col-md-8.mb-3
+      .col-md-3.mb-3
+        label(for='startdate') Duration
+        input#startdate.form-control(type='datetime-local' name='startdate' placeholder='Start Time' required='')
+      .col-md-3.mb-3
+        label(for='enddate') &nbsp&nbsp
+        input#enddate.form-control(type='datetime-local' name='enddate' onmousemove='setEndDate()' placeholder='End Time' required='')
+      .col-md-6.mb-3
         label(for='location') Location
-        input#location.form-control(type='text' name='location' placeholder='Location')
+        input#location.form-control(type='text' name='location' placeholder='Location' required='')
     .form-row
       .col-md-6.mb-3
         label(for='website') Website
@@ -29,5 +36,5 @@ block content
     .form-row
       .col-md-6.mb-3
         label(for='desc') Description
-        textarea#desc.form-control(name='desc' placeholder='Event Description' rows='5')
+        textarea#desc.form-control(name='desc' placeholder='Event Description' rows='5' required='')
     button.btn.btn-primary(type='submit') Submit
