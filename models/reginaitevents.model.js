@@ -7,9 +7,13 @@ const eventsSchema = mongoose.Schema({
     },
     organizer: String,
     orgURL: String,
-    date: {
+    startdate: {
         type: String,
-        required: [true, 'event date is required']
+        required: [true, 'startdate is required']
+    },
+    enddate: {
+        type: String,
+        required: [true, 'enddate is required']
     },
     location: String,
     description: {

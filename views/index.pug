@@ -6,6 +6,9 @@ block styles
 block navcontent
   a.nav-item.nav-link.active(href='/') IT Event List
   a.nav-item.nav-link(href='/newevent') New IT Event
+block register
+  a.nav-item.nav-link(href='/register') Register
+  a.nav-item.nav-link(href='/login') Login
 
 block content
   #eventcontainer.container-fluid
@@ -22,7 +25,7 @@ block content
             h3= event.name
         .card-body
           .card-title 
-            h5= event.date
+            h5= event.startdate
           .card-title
             h5= event.location + '    ' + event.organizer
           .card-text
@@ -30,3 +33,7 @@ block content
           if event.img != ''
             .card-text
             img.img-fluid(src='img/' + event.img alt='Responsive image')
+          .card-text
+            ='Like '
+            img.img-fluid(src='img/Dever.png')
+            ='Attendees 2'

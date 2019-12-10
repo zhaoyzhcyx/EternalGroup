@@ -23,7 +23,7 @@ head
 body  
   // top navigation
   nav.navbar.navbar-expand-md.navbar-dark.bg-dark
-    a.navbar-brand(href='#') Dever
+    a.navbar-brand(href='/') Dever
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarCollapse')
       span.navbar-toggler-icon
     a.nav-item.nav-link()                        
@@ -40,7 +40,20 @@ body
         form.form-inline.align-items-center(action='/search' method='POST' enctype='application/x-www-form-urlencoded')
           input.form-control.mr-sm-2(type='text' name='keyword' placeholder='Search')
           button.btn.btn-outline-light(type='submit') Search
-
+      
+        a.nav-item.nav-link()                        
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()                        
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()                        
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        a.nav-item.nav-link()
+        block register
   br
   block content
 
