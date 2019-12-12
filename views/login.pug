@@ -15,7 +15,7 @@ block content
   br
   br
 
-  form.container(action='addevent' method='POST' enctype='application/x-www-form-urlencoded')
+  form.container(enctype='application/x-www-form-urlencoded')
     .form-row
       .col-md-4.mb-3
       .col-md-1.mb-3
@@ -30,13 +30,14 @@ block content
       .col-md-1.mb-3
         | Password:
       .col-md-3.mb-3
-        input#password.form-control(type='text' name='password' pattern='^[a-zA-Z0-9]*$' minlength='8' placeholder='password' required='')
-      .col-md-4.mb-3    
+        input#password.form-control(type='password' name='password' pattern='^[a-zA-Z0-9]*$' minlength='8' placeholder='password' required='')
+      .col-md-4.mb-3  
+        #loginresult  
     .form-row
       .col-md-3.mb-3    
     .form-row
       .col-md-4.mb-3    
       .col-md-1.mb-3
       .col-md-3.mb-3
-        button.btn.btn-primary(type='submit') Login
+        button.btn.btn-primary(type='button' onclick='checkUser()') Login
       .col-md-4.mb-3

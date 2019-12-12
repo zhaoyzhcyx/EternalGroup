@@ -47,6 +47,18 @@ app.post('/search', urlencodedParser, (req,res) => {
     res.redirect('/')
 })
 
+app.get('/loginCheck/:username', (req,res) => {
+    usersModel.find({username: req.params.username}).exec((err, users) => {
+        res.json(users)
+    })
+})
+
+app.get('/checkemail/:email', (req,res) => {
+    usersModel.find({email: req.params.email}).exec((err, users) => {
+        res.json(users)
+    })
+})
+
 app.get('/checkusername/:username', (req,res) => {
     usersModel.find({username: req.params.username}).exec((err, users) => {
         res.json(users)
@@ -57,7 +69,7 @@ app.post('/newuser', urlencodedParser, (req,res) => {
     let newUser = [{
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.pwresult
     }]
 
     usersModel.create(newUser, (err,small) => {

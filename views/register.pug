@@ -21,7 +21,7 @@ block content
       .col-md-1.mb-3
         | User Name:
       .col-md-4.mb-3
-        input#username.form-control(type='text' name='username' onfocusout='checkUserName()' pattern='^[a-zA-Z0-9/*@]*$' placeholder='user name' required='')
+        input#username.form-control(type='text' name='username' onblur='checkUserName()' pattern='^[a-zA-Z0-9/*@]*$' placeholder='user name' required='')
         | letter or number or / * @
       .col-md-1.mb-3
         | * 
@@ -34,10 +34,11 @@ block content
       .col-md-1.mb-3
         | Email:
       .col-md-4.mb-3
-        input#email.form-control(type='email' name='email' onfocusout='checkEmail()' placeholder='email' required='')
+        input#email.form-control(type='text' name='email' onblur='checkEmail()' placeholder='email' required='')
       .col-md-1.mb-3
         | * 
-      .col-md-3.mb-3 
+      .col-md-3.mb-3
+        #emailresult 
     .form-row
       .col-md-3.mb-3       
     .form-row
@@ -45,11 +46,12 @@ block content
       .col-md-1.mb-3
         | Password:
       .col-md-4.mb-3
-        input#password.form-control(type='password' name='password' pattern='^[a-zA-Z0-9]*$' minlength='8' placeholder='password' required='')
+        input#password.form-control(type='password' name='password' onblur='encrpPW()' pattern='^[a-zA-Z0-9]*$' minlength='8' placeholder='password' required='')
         | at least eight characters including one letter and one number
       .col-md-1.mb-3
         |* 
-      .col-md-3.mb-3    
+      .col-md-3.mb-3
+        input#pwresult.form-control(type='text' name='pwresult' hidden)    
     .form-row
       .col-md-3.mb-3    
     .form-row
