@@ -28,15 +28,11 @@ function checkUser() {
         return res.json();
     }).then((data) => {
         if (data.length >0) {
-            console.log(data)
-            console.log(data.password)
-            const password = data.password()
-            var decipher = CryptoJS.AES.decrypt(password, crypt.secret);
-            decipher = decipher.toString(CryptoJS.enc.Utf8);
-            if (decipher === pw) {
-                console.log('login success')
+            inputedPW = crypt.decrypt(data[0].password)
+            if (inputedPW === pw) {
+                window.location.href = "/"
             }else {
-                document.getElementById('loginresult').innerHTML="<font color='green'>invalid password!</font>"; 
+                document.getElementById('loginresult').innerHTML="<font color='red'>invalid password!</font>"; 
             }
         }
         else {
@@ -47,9 +43,6 @@ function checkUser() {
 
 //used by register.pug to check email
 function checkEmail() {
-    var cipher = crypt.encrypt("FOO BAR");
-  console.log(cipher);
-
     const email = document.getElementById('email')
     if (email.value == '') return
 
@@ -66,7 +59,7 @@ function checkEmail() {
             return res.json();
         }).then((data) => {
             if (data.length >0) {
-                email.focus()
+                // email.focus()
                 document.getElementById('emailresult').innerHTML="<font color='red'>email exists！</font>"; 
             }
             else {
@@ -85,7 +78,7 @@ function checkUserName() {
     let nameRegex = '^[a-zA-Z0-9/*@]*$';
     let validUserName = username.value.match(nameRegex)
     if(validUserName == null){
-        username.focus()
+        // username.focus()
         document.getElementById('usernameresult').innerHTML="<font color='red'>letter or number or / * @</font>"; 
         return
     }
@@ -95,7 +88,7 @@ function checkUserName() {
             return res.json();
         }).then((data) => {
             if (data.length >0) {
-                username.focus()
+                // username.focus()
                 document.getElementById('usernameresult').innerHTML="<font color='red'>user exists！</font>"; 
             }
             else {
@@ -105,12 +98,25 @@ function checkUserName() {
     }
 }
 
+//used by register pug to encrpt the password and save into the hidden element with id 'pwresult'
 function encrpPW() {
-    var cipher = CryptoJS.AES.encrypt(document.getElementById('password').value, crypt.secret);
-    cipher = cipher.toString();
+    const pw = document.getElementById('password')
+    if (pw.value == '') return
+    if (pw.value.length < 8) {
+        document.getElementById('pwalert').innerHTML="<font color='red'>password must at least eight letters！</font>"
+        return
+    }
 
-    document.getElementById('pwresult').value = cipher
-} 
+    let nameRegex = '^[a-zA-Z0-9]*$';
+    let validUserName = pw.value.match(nameRegex)
+    if(validUserName == null){
+        document.getElementById('pwalert').innerHTML="<font color='red'>password must include at least one letter and one number！</font>"
+        return
+    }
+
+    document.getElementById('pwalert').innerHTML="<font color='green'>ok</font>"
+    document.getElementById('pwresult').value = crypt.encrypt(document.getElementById('password').value)
+}
 
 var crypt = {
     secret : "CIPHERKEY",

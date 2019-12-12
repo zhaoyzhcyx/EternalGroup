@@ -19,16 +19,10 @@ var mongoDB = process.env.MONGO_CONNECT_URI
 mongoose.connect(mongoDB,{useUnifiedTopology: true, useNewUrlParser: true})
 
 app.get('/', (req,res) => {
-    eventsModel.find({}).sort({date: -1}).exec((err, events) => {
+    eventsModel.find({}).sort({startdate: -1}).exec((err, events) => {
         res.render('index', {events: events})
     })
 })
-
-// app.get('/eventlist', (req,res) => {
-//     eventsModel.find({}).sort({startdate: -1}).exec((err, events) => {
-//         res.render('events', {events: events})
-//     })
-// })
 
 app.get('/login', (req,res) =>{
     res.render('login')
@@ -43,7 +37,6 @@ app.get('/newevent', (req,res) => {
 })
 
 app.post('/search', urlencodedParser, (req,res) => {
-    console.log(req.body.keyword)
     res.redirect('/')
 })
 
