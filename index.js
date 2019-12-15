@@ -24,6 +24,38 @@ app.get('/', (req,res) => {
     })
 })
 
+app.post('/newuser', urlencodedParser, (req,res) => {
+    let newUser = [{
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.pwresult
+    }]
+
+    usersModel.create(newUser, (err,small) => {
+        if (err) return handleError(err)
+        res.redirect('/')
+    })
+})
+
+app.post('/addevent',urlencodedParser, (req,res) => {
+    let startDate = ("" + req.body.startdate).substr(0,10) + " " + ("" + req.body.startdate).substr(11,5)
+    let endDate = ("" + req.body.enddate).substr(0,10) + " " + ("" + req.body.enddate).substr(11,5)
+    let newEvent = [{
+        name: req.body.eventname,
+        organizer: req.body.organizer,
+        orgURL: req.body.website, 
+        startdate: startDate,
+        enddate: endDate,
+        location: req.body.location,
+        description: req.body.desc,
+        img: req.body.image
+    }]
+    eventsModel.create(newEvent, (err,small) => {
+        if (err) return handleError(err)
+        res.redirect('/')
+    })
+})
+
 app.get('/login', (req,res) =>{
     res.render('login')
 })
@@ -55,38 +87,6 @@ app.get('/checkemail/:email', (req,res) => {
 app.get('/checkusername/:username', (req,res) => {
     usersModel.find({username: req.params.username}).exec((err, users) => {
         res.json(users)
-    })
-})
-
-app.post('/newuser', urlencodedParser, (req,res) => {
-    let newUser = [{
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.pwresult
-    }]
-
-    usersModel.create(newUser, (err,small) => {
-        if (err) return handleError(err)
-        res.redirect('/')
-    })
-})
-
-app.post('/addevent',urlencodedParser, (req,res) => {
-    let startDate = ("" + req.body.startdate).substr(0,10) + " " + ("" + req.body.startdate).substr(11,5)
-    let endDate = ("" + req.body.enddate).substr(0,10) + " " + ("" + req.body.enddate).substr(11,5)
-    let newEvent = [{
-        name: req.body.eventname,
-        organizer: req.body.organizer,
-        orgURL: req.body.website, 
-        startdate: startDate,
-        enddate: endDate,
-        location: req.body.location,
-        description: req.body.desc,
-        img: req.body.image
-    }]
-    eventsModel.create(newEvent, (err,small) => {
-        if (err) return handleError(err)
-        res.redirect('/')
     })
 })
 
