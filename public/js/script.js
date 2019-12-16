@@ -30,6 +30,12 @@ function checkUser() {
         if (data.length >0) {
             inputedPW = crypt.decrypt(data[0].password)
             if (inputedPW === pw) {
+                //set up session
+                fetch("/session/" + username).then(res => {
+                    // return res.json();
+                }).then((data) => {
+                })
+
                 window.location.href = "/"
             }else {
                 document.getElementById('loginresult').innerHTML="<font color='red'>invalid password!</font>"; 

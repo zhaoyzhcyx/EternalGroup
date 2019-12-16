@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const bodyparser = require('body-parser')
+const session = require('express-session')
 const urlencodedParser = bodyparser.urlencoded({extend: false})
 const mongoose = require('mongoose')
 const eventsModel = require('./models/reginaitevents.model')
@@ -9,17 +10,20 @@ const usersModel = require('./models/users.model')
 
 require('dotenv').config()
 app.use('',express.static('public'))
-// app.use(''.express.static('others'))
 app.set('view engine','pug')
 app.use(urlencodedParser)
+app.use(session({secret: 'Devers',saveUninitialized: true,resave: true}));
+var sess
 
 const port = process.env.PORT || 3000
 var mongoDB = process.env.MONGO_CONNECT_URI
 mongoose.connect(mongoDB,{useUnifiedTopology: true, useNewUrlParser: true})
 
 app.get('/', (req,res) => {
+    sess = req.session
+    if (!sess.loginUser) sess.loginUser = ''
     eventsModel.find({}).sort({startdate: -1}).exec((err, events) => {
-        res.render('index', {events: events})
+        res.render('index', {events: events, loginUser: sess.loginUser})
     })
 })
 
@@ -55,20 +59,32 @@ app.post('/addevent',urlencodedParser, (req,res) => {
     })
 })
 
+app.get('/logout', (req,res) => {
+    sess = req.session
+    sess.loginUser = ''
+    res.render('login', {loginUser: sess.loginUser})
+})
+
 app.get('/login', (req,res) =>{
-    res.render('login')
+    res.render('login', {loginUser: sess.loginUser})
 })
 
 app.get('/register', (req,res) => {
-    res.render('register')
+    res.render('register', {loginUser: sess.loginUser})
 })
 
 app.get('/newevent', (req,res) => {
-    res.render('newevent')
+    res.render('newevent', {loginUser: sess.loginUser})
 })
 
 app.post('/search', urlencodedParser, (req,res) => {
     res.redirect('/')
+})
+
+app.get('/session/:username', (req, res) => {
+    sess = req.session;
+    sess.loginUser = req.params.username
+    res.json()
 })
 
 app.get('/loginCheck/:username', (req,res) => {
