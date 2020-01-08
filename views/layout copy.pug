@@ -22,4 +22,31 @@ head
   block styles
   block script
 body  
+  // top navigation
+  nav.navbar.navbar-expand-md.navbar-dark.bg-dark
+    a.navbar-brand(href='/') Dever
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarCollapse')
+      span.navbar-toggler-icon
   
+    #navbarCollapse.collapse.navbar-collapse
+      .navbar-nav
+        block navcontent
+    #navbarCollapse.collapse.navbar-collapse
+      form.form-inline.align-items-center(action='/search' method='POST' enctype='application/x-www-form-urlencoded')
+        input.form-control.mr-sm-2(type='text' name='keyword' placeholder='Search')
+        button.btn.btn-outline-light(type='submit') Search     
+    #navbarCollapse.collapse.navbar-collapse
+      .navbar-nav
+        block register
+    #navbarCollapse.collapse.navbar-collapse
+      .navbar-nav
+        if loginUser
+          a.navbar-brand(href='/')
+            h3= loginUser    
+          a.nav-item.nav-link(href='/logout') Logout
+        else 
+          a.nav-item.nav-link(href='/login') Login
+        a.nav-item.nav-link(href='/register') Register
+ 
+  br
+  block content

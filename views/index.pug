@@ -1,26 +1,5 @@
 extends ./layout.pug
 
 block styles
-  title IT Events in Regina
+  title IT Events in Regina - test
 
-block navcontent
-  a.nav-item.nav-link.active(href='/') IT Event List
-  a.nav-item.nav-link(href='/newevent') New IT Event
-
-block content
-  #eventcontainer.container-fluid
-    each event in events
-      .card.col-md-9.mb-3
-        .card-header
-          a(href=event.orgURL target='_blank')
-            h3= event.name
-        .card-body
-          .card-title 
-            h5= event.startdate
-          .card-title
-            h5= event.location + '    ' + event.organizer
-          .card-text
-            p= event.description
-          if event.img != ''
-            .card-text
-            img.img-fluid(src='img/' + event.img alt='Responsive image')
