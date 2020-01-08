@@ -20,12 +20,12 @@ var mongoDB = process.env.MONGO_CONNECT_URI
 mongoose.connect(mongoDB,{useUnifiedTopology: true, useNewUrlParser: true})
 
 app.get('/', (req,res) => {
-    res.render('index')
-    // sess = req.session
-    // if (!sess.loginUser) sess.loginUser = ''
-    // eventsModel.find({}).sort({startdate: -1}).exec((err, events) => {
-    //     res.render('index', {events: events, loginUser: sess.loginUser})
-    // })
+    // res.render('index')
+    sess = req.session
+    if (!sess.loginUser) sess.loginUser = ''
+    eventsModel.find({}).sort({startdate: -1}).exec((err, events) => {
+        res.render('index', {events: events, loginUser: sess.loginUser})
+    })
 })
 
 app.post('/newuser', urlencodedParser, (req,res) => {
