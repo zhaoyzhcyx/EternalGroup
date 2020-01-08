@@ -1,25 +1,53 @@
 doctype html
 head
-  // Required meta tags
-  meta(charset='utf-8')
-  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-  meta(name='keywords' content='information technology, IT, coding, programming, HTML, HTML5, CSS, XML, XHTML, JavaScript, dever')
-  meta(name='description' content='Dever website is designed for developers to share information and discuss IT issues or ideas.')
-  meta( name='author' content='zhaoyzhcyx')
-  // Bootstrap CSS
-  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
-  // <link rel="stylesheet" href="../angular/bootstrap-4.3.1-dist/css/bootstrap.min.css">
-  link(rel='shortcut icon' href='img/Dever.png' type='image/x-icon')
-  // Optional JavaScript
-  // jQuery first, then Popper.js, then Bootstrap JS
-  script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
-  script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
-  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
-  script(src="/js/script.js")
-
-  block styles
-  block script
-body  
-  
+  title Login V15
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  // ===============================================================================================
+  link(rel='stylesheet' type='text/css' href='css/util.css')
+  link(rel='stylesheet' type='text/css' href='css/main.css')
+  // ===============================================================================================
+.limiter
+  .container-login100
+    .wrap-login100
+      .login100-form-title(style='background-image: url(img/bg-02.jpg);')
+      form.login100-form.validate-form
+        .wrap-input100.validate-input.m-b-26(data-validate='Username is required')
+          span.label-input100 Username
+          input.input100(type='text' name='username' placeholder='Enter username')
+          span.focus-input100
+        .wrap-input100.validate-input.m-b-18(data-validate='Password is required')
+          span.label-input100 Password
+          input.input100(type='password' name='pass' placeholder='Enter password')
+          span.focus-input100
+        .flex-sb-m.w-full.p-b-30
+          .contact100-form-checkbox
+            input#ckb1.input-checkbox100(type='checkbox' name='remember-me')
+            label.label-checkbox100(for='ckb1')
+              | Remember me
+          div
+            a.txt1(href='#')
+              | Forgot Password?
+        .container-login100-form-btn
+          button.login100-form-btn
+            | Login
+      .login100-download
+        .download100 &amp;nbsp&amp;nbspCitizen One Mobile App 
+        .download100
+          img(src='img/Untitled3.png' alt='Logo')
+// ===============================================================================================
+script(src='vendor/jquery/jquery-3.2.1.min.js')
+// ===============================================================================================
+script(src='vendor/animsition/js/animsition.min.js')
+// ===============================================================================================
+script(src='vendor/bootstrap/js/popper.js')
+script(src='vendor/bootstrap/js/bootstrap.min.js')
+// ===============================================================================================
+script(src='vendor/select2/select2.min.js')
+// ===============================================================================================
+script(src='vendor/daterangepicker/moment.min.js')
+script(src='vendor/daterangepicker/daterangepicker.js')
+// ===============================================================================================
+script(src='vendor/countdowntime/countdowntime.js')
+// ===============================================================================================
+script(src='js/main.js')
